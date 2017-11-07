@@ -7,40 +7,40 @@ using MovieDatabase.Models;
 
 namespace MovieDatabase.Controllers
 {
-    public class GenreController : Controller
+    public class RatingController : Controller
     {
-        // GET: Genre
+        // GET: Rating
         public ActionResult Index()
         {
-            GenreDBHandler dbhandle = new GenreDBHandler();
+            RatingDBHandler dbhandle = new RatingDBHandler();
             ModelState.Clear();
-            return View(dbhandle.GetGenre());
+            return View(dbhandle.GetRating());
         }
 
-        // GET: Genre/Details/5
+        // GET: Rating/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Genre/Create
+        // GET: Rating/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Genre/Create
+        // POST: Rating/Create
         [HttpPost]
-        public ActionResult Create(Genre smodel)
+        public ActionResult Create(Rating smodel)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    GenreDBHandler sdb = new GenreDBHandler();
-                    if (sdb.AddGenre(smodel))
+                    RatingDBHandler sdb = new RatingDBHandler();
+                    if (sdb.AddRating(smodel))
                     {
-                        ViewBag.Message = "Genre Details Added Successfully";
+                        ViewBag.Message = "Rating Details Added Successfully";
                         ModelState.Clear();
                     }
                 }
@@ -52,20 +52,20 @@ namespace MovieDatabase.Controllers
             }
         }
 
-        // GET: Genre/Edit/5
+        // GET: Rating/Edit/5
         public ActionResult Edit(int id)
         {
-            GenreDBHandler sdb = new GenreDBHandler();
-            return View(sdb.GetGenre().Find(smodel => smodel.GenreID == id));
+            RatingDBHandler sdb = new RatingDBHandler();
+            return View(sdb.GetRating().Find(smodel => smodel.RatingID == id));
         }
 
-        // POST: Genre/Edit/5
+        // POST: Rating/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Genre smodel)
+        public ActionResult Edit(int id, Rating smodel)
         {
             try
             {
-                GenreDBHandler sdb = new GenreDBHandler();
+                RatingDBHandler sdb = new RatingDBHandler();
                 sdb.UpdateDetails(smodel);
                 return RedirectToAction("Index");
             }
@@ -75,15 +75,15 @@ namespace MovieDatabase.Controllers
             }
         }
 
-        // GET: Genre/Delete/5
+        // GET: Rating/Delete/5
         public ActionResult Delete(int id)
         {
             try
             {
-                GenreDBHandler sdb = new GenreDBHandler();
-                if (sdb.DeleteGenre(id))
+                RatingDBHandler sdb = new RatingDBHandler();
+                if (sdb.DeleteRating(id))
                 {
-                    ViewBag.AlertMsg = "Genre Deleted Successfully";
+                    ViewBag.AlertMsg = "Rating Deleted Successfully";
                 }
                 return RedirectToAction("Index");
             }
@@ -93,7 +93,7 @@ namespace MovieDatabase.Controllers
             }
         }
 
-        // POST: Genre/Delete/5
+        // POST: Rating/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -110,3 +110,4 @@ namespace MovieDatabase.Controllers
         }
     }
 }
+
