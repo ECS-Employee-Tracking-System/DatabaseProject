@@ -117,11 +117,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FilmController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Film.cs" />
+    <Compile Include="Models\FilmDBHandler.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\GenreDBHandler.cs" />
     <Compile Include="Models\Rating.cs" />
@@ -135,6 +138,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Film\Index.cshtml" />
+    <Content Include="Views\Film\Create.cshtml" />
+    <Content Include="Views\Film\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
