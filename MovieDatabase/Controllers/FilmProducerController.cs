@@ -89,7 +89,7 @@ namespace MovieDatabase.Controllers
             try
             {
                 FilmProducerDBHandler sdb = new FilmProducerDBHandler();
-                if (sdb.DeleteRating(id))
+                if (sdb.DeleteFilmProducer(id))
                 {
                     ViewBag.AlertMsg = "Film Deleted Successfully";
                 }

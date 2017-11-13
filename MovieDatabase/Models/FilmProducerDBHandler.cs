@@ -78,16 +78,18 @@ namespace MovieDatabase.Models
         // ***************** UPDATE FilmProducer DETAILS *********************
         public bool UpdateDetails(FilmProducer smodel)
         {
+                
             Connection();
             SqlCommand cmd = new SqlCommand("UpdateFilmProducerDetails", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@FilmID", smodel.FilmID);
+            cmd.Parameters.AddWithValue("@ProducerFirstName", smodel.ProducerFirstName);
+            cmd.Parameters.AddWithValue("@ProducerLastName", smodel.ProducerLastName);
             cmd.Parameters.AddWithValue("@FilmName", smodel.FilmName);
             cmd.Parameters.AddWithValue("@GenreName", smodel.GenreName);
             cmd.Parameters.AddWithValue("@RatingName", smodel.RatingName);
-            cmd.Parameters.AddWithValue("@ProducerFirstName", smodel.ProducerFirstName);
-            cmd.Parameters.AddWithValue("@ProducerLastName", smodel.ProducerLastName);
-            cmd.Parameters.AddWithValue("@ProducerID", smodel.ProducerID);
+            
+   
     
             con.Open();
             int i = cmd.ExecuteNonQuery();
@@ -100,7 +102,7 @@ namespace MovieDatabase.Models
         }
 
         // ********************** DELETE FilmProducer DETAILS *******************
-        public bool DeleteRating(int id)
+        public bool DeleteFilmProducer(int id)
         {
             Connection();
             SqlCommand cmd = new SqlCommand("DeleteFilmProducer", con);
