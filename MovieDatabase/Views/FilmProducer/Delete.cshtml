@@ -1,0 +1,90 @@
+﻿@model MovieDatabase.Models.FilmProducer
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>FilmProducer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProducerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProducerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GenreID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenreID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RatingID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RatingID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProducerFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProducerFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProducerLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProducerLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RatingName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RatingName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GenreName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenreName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

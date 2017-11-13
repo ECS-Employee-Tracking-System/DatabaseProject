@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MovieDatabase.Models.FilmProducer>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProducerFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProducerLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilmName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RatingName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GenreName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+   
+        <td>
+            @Html.DisplayFor(modelItem => item.ProducerFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProducerLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RatingName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GenreName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

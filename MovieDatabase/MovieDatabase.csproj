@@ -118,15 +118,21 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FilmController.cs" />
+    <Compile Include="Controllers\FilmProducerController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
+    <Compile Include="Controllers\ProducerController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Film.cs" />
     <Compile Include="Models\FilmDBHandler.cs" />
+    <Compile Include="Models\FilmProducer.cs" />
+    <Compile Include="Models\FilmProducerDBHandler.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\GenreDBHandler.cs" />
+    <Compile Include="Models\Producer.cs" />
+    <Compile Include="Models\ProducerDBHandler.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\RatingDBHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,6 +147,14 @@
     <Content Include="Views\Film\Index.cshtml" />
     <Content Include="Views\Film\Create.cshtml" />
     <Content Include="Views\Film\Edit.cshtml" />
+    <Content Include="Views\Producer\Index.cshtml" />
+    <Content Include="Views\Producer\Create.cshtml" />
+    <Content Include="Views\Producer\Edit.cshtml" />
+    <Content Include="Views\Producer\Delete.cshtml" />
+    <Content Include="Views\FilmProducer\Index.cshtml" />
+    <Content Include="Views\FilmProducer\Create.cshtml" />
+    <Content Include="Views\FilmProducer\Edit.cshtml" />
+    <Content Include="Views\FilmProducer\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -150,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
