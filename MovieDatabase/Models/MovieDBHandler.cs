@@ -115,7 +115,6 @@ namespace MovieDatabase.Models
             Connection();
             SqlCommand cmd = new SqlCommand("DeleteMovie", con);
             cmd.CommandType = CommandType.StoredProcedure;
-
             cmd.Parameters.AddWithValue("@FilmID", id);
 
             con.Open();

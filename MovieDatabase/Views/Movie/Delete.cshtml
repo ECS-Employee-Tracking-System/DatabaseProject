@@ -5,9 +5,71 @@
     <h4>Movie</h4>
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.FilmID)
+            @Html.DisplayNameFor(model => model.ProducerFirstName)
         </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProducerFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProducerLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProducerLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RatingName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RatingName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GenreName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenreName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActorFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActorFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActorLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActorLastName)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
