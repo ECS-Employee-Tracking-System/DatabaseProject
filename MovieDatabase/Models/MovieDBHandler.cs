@@ -7,7 +7,7 @@ using System.Configuration;
 
 namespace MovieDatabase.Models
 {
-    public class FilmProducerDBHandler
+    public class MovieDBHandler
     {
         private SqlConnection con;
         private void Connection()
@@ -16,19 +16,22 @@ namespace MovieDatabase.Models
             con = new SqlConnection(constring);
         }
 
-        // **************** ADD NEW FilmProducer *********************
+        // **************** ADD NEW Movie *********************
 
-        public bool AddFilmProducer(FilmProducer smodel)
+        public bool AddMovie(Movie smodel)
         {
             Connection();
-            SqlCommand cmd = new SqlCommand("AddNewFilmProducer", con);
+            SqlCommand cmd = new SqlCommand("AddNewMovie", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@ProducerFirstName", smodel.ProducerFirstName);
             cmd.Parameters.AddWithValue("@ProducerLastName", smodel.ProducerLastName);
             cmd.Parameters.AddWithValue("@FilmName", smodel.FilmName);
             cmd.Parameters.AddWithValue("@GenreName", smodel.GenreName);
             cmd.Parameters.AddWithValue("@RatingName", smodel.RatingName);
-            
+            cmd.Parameters.AddWithValue("@ActorFirstName", smodel.ActorFirstName);
+            cmd.Parameters.AddWithValue("@ActorLastName", smodel.ActorLastName);
+            cmd.Parameters.AddWithValue("@RoleName", smodel.ActorLastName);
+
             con.Open();
             int i = cmd.ExecuteNonQuery();
             con.Close();
@@ -39,13 +42,13 @@ namespace MovieDatabase.Models
                 return false;
         }
 
-        // ********** VIEW FilmProducer DETAILS ********************
-        public List<FilmProducer> GetFilmProducer()
+        // ********** VIEW Movie DETAILS ********************
+        public List<Movie> GetMovie()
         {
             Connection();
-            List<FilmProducer> FilmProducerlist = new List<FilmProducer>();
+            List<Movie> Movielist = new List<Movie>();
 
-            SqlCommand cmd = new SqlCommand("GetFilmProducerDetails", con);
+            SqlCommand cmd = new SqlCommand("GetMovieDetails", con);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter sd = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -56,31 +59,34 @@ namespace MovieDatabase.Models
 
             foreach (DataRow dr in dt.Rows)
             {
-    
-                    FilmProducerlist.Add(
-                        new FilmProducer
-                        {
-                            FilmName = Convert.ToString(dr["FilmName"]),
-                            FilmID = Convert.ToInt32(dr["FilmID"]),
-                            ProducerID = Convert.ToInt32(dr["ProducerID"]),
-                            GenreID = Convert.ToInt32(dr["GenreID"]),
-                            RatingID = Convert.ToInt32(dr["RatingID"]),
-                            RatingName = Convert.ToString(dr["RatingName"]),
-                            GenreName = Convert.ToString(dr["GenreName"]),
-                            ProducerFirstName = Convert.ToString(dr["ProducerFirstName"]),
-                            ProducerLastName = Convert.ToString(dr["ProducerLastName"])
 
-                        });
+                Movielist.Add(
+                    new Movie
+                    {
+                        FilmName = Convert.ToString(dr["FilmName"]),
+                        FilmID = Convert.ToInt32(dr["FilmID"]),
+                        ProducerID = Convert.ToInt32(dr["ProducerID"]),
+                        GenreID = Convert.ToInt32(dr["GenreID"]),
+                        RatingID = Convert.ToInt32(dr["RatingID"]),
+                        RatingName = Convert.ToString(dr["RatingName"]),
+                        GenreName = Convert.ToString(dr["GenreName"]),
+                        ProducerFirstName = Convert.ToString(dr["ProducerFirstName"]),
+                        ProducerLastName = Convert.ToString(dr["ProducerLastName"]),
+                        ActorFirstName= Convert.ToString(dr["ActorFirstName"]),
+                        ActorLastName = Convert.ToString(dr["ActorLastName"]),
+                        RoleName = Convert.ToString(dr["RoleName"])
+
+                    });
             }
-            return FilmProducerlist;
+            return Movielist;
         }
 
-        // ***************** UPDATE FilmProducer DETAILS *********************
-        public bool UpdateDetails(FilmProducer smodel)
+        // ***************** UPDATE Movie DETAILS *********************
+        public bool UpdateDetails(Movie smodel)
         {
-                
+
             Connection();
-            SqlCommand cmd = new SqlCommand("UpdateFilmProducerDetails", con);
+            SqlCommand cmd = new SqlCommand("UpdateMovieDetails", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@FilmID", smodel.FilmID);
             cmd.Parameters.AddWithValue("@ProducerFirstName", smodel.ProducerFirstName);
@@ -88,9 +94,11 @@ namespace MovieDatabase.Models
             cmd.Parameters.AddWithValue("@FilmName", smodel.FilmName);
             cmd.Parameters.AddWithValue("@GenreName", smodel.GenreName);
             cmd.Parameters.AddWithValue("@RatingName", smodel.RatingName);
-            
-   
-    
+            cmd.Parameters.AddWithValue("@ActorFirstName", smodel.ActorFirstName);
+            cmd.Parameters.AddWithValue("@ActorLastName", smodel.ActorLastName);
+            cmd.Parameters.AddWithValue("@RoleName", smodel.RoleName);
+
+
             con.Open();
             int i = cmd.ExecuteNonQuery();
             con.Close();
@@ -101,12 +109,13 @@ namespace MovieDatabase.Models
                 return false;
         }
 
-        // ********************** DELETE FilmProducer DETAILS *******************
-        public bool DeleteFilmProducer(int id)
+        // ********************** DELETE Movie DETAILS *******************
+        public bool DeleteMovie(int id)
         {
             Connection();
-            SqlCommand cmd = new SqlCommand("DeleteFilmProducer", con);
+            SqlCommand cmd = new SqlCommand("DeleteMovie", con);
             cmd.CommandType = CommandType.StoredProcedure;
+
             cmd.Parameters.AddWithValue("@FilmID", id);
 
             con.Open();

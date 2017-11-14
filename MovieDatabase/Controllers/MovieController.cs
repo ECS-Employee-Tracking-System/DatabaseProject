@@ -5,43 +5,42 @@ using System.Web;
 using System.Web.Mvc;
 using MovieDatabase.Models;
 
-
 namespace MovieDatabase.Controllers
 {
-    public class FilmProducerController : Controller
+    public class MovieController : Controller
     {
-        // GET: FilmProducer
+        // GET: Movie
         public ActionResult Index()
         {
-            FilmProducerDBHandler dbhandle = new FilmProducerDBHandler();
+            MovieDBHandler dbhandle = new MovieDBHandler();
             ModelState.Clear();
-            return View(dbhandle.GetFilmProducer());
+            return View(dbhandle.GetMovie());
         }
 
-        // GET: FilmProducer/Details/5
+        // GET: Movie/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: FilmProducer/Create
+        // GET: Movie/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: FilmProducer/Create
+        // POST: Movie/Create
         [HttpPost]
-        public ActionResult Create(FilmProducer smodel)
+        public ActionResult Create(Movie smodel)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    FilmProducerDBHandler sdb = new FilmProducerDBHandler();
-                    if (sdb.AddFilmProducer(smodel))
+                    MovieDBHandler sdb = new MovieDBHandler();
+                    if (sdb.AddMovie(smodel))
                     {
-                        ViewBag.Message = "FilmProducer Details Added Successfully";
+                        ViewBag.Message = "Movie Details Added Successfully";
                         ModelState.Clear();
                     }
                 }
@@ -52,21 +51,20 @@ namespace MovieDatabase.Controllers
                 return View();
             }
         }
-
-        // GET: FilmProducer/Edit/5
+        // GET: Movie/Edit/5
         public ActionResult Edit(int id)
         {
-            FilmProducerDBHandler sdb = new FilmProducerDBHandler();
-            return View(sdb.GetFilmProducer().Find(smodel => smodel.FilmID == id));
+            MovieDBHandler sdb = new MovieDBHandler();
+            return View(sdb.GetMovie().Find(smodel => smodel.FilmID == id));
         }
 
         // POST: FilmProducer/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FilmProducer smodel)
+        public ActionResult Edit(int id, Movie smodel)
         {
             try
             {
-                FilmProducerDBHandler sdb = new FilmProducerDBHandler();
+                MovieDBHandler sdb = new MovieDBHandler();
                 sdb.UpdateDetails(smodel);
                 return RedirectToAction("Index");
             }
@@ -76,13 +74,13 @@ namespace MovieDatabase.Controllers
             }
         }
 
-        // GET: FilmProducer/Delete/5
+        // GET: Movie/Delete/5
         public ActionResult Delete(int id)
         {
             try
             {
-                FilmProducerDBHandler sdb = new FilmProducerDBHandler();
-                if (sdb.DeleteFilmProducer(id))
+               MovieDBHandler sdb = new MovieDBHandler();
+                if (sdb.DeleteMovie(id))
                 {
                     ViewBag.AlertMsg = "Film Deleted Successfully";
                 }
