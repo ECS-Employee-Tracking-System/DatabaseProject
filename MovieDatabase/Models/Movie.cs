@@ -27,8 +27,6 @@ namespace MovieDatabase.Models
         public String RatingName { get; set; }
         
         public String GenreName { get; set; }
-
-        public String RoleName { get; set; }
       
         public String ActorFirstName { get; set; }
         public String ActorLastName { get; set; }
@@ -36,5 +34,7 @@ namespace MovieDatabase.Models
         public String ActorBirthCity { get; set; }
         public String ActorBirthState { get; set; }
         public String ActorBirthCountry { get; set; }
+
+        public String RoleName { get; set; }
     }
 }

@@ -110,10 +110,19 @@ namespace MovieDatabase.Models
             cmd.Parameters.AddWithValue("@ProducerFirstName", smodel.ProducerFirstName);
             cmd.Parameters.AddWithValue("@ProducerLastName", smodel.ProducerLastName);
             cmd.Parameters.AddWithValue("@FilmName", smodel.FilmName);
+            cmd.Parameters.AddWithValue("@FilmYear", smodel.FilmYear);
+            cmd.Parameters.AddWithValue("@FilmReleased", smodel.FilmReleased);
+            cmd.Parameters.AddWithValue("@FilmRuntime", smodel.FilmRuntime);
+            cmd.Parameters.AddWithValue("@FilmimdbID", smodel.FilmimdbID);
+            cmd.Parameters.AddWithValue("@FilmPoster", smodel.FilmPoster);
             cmd.Parameters.AddWithValue("@GenreName", smodel.GenreName);
             cmd.Parameters.AddWithValue("@RatingName", smodel.RatingName);
             cmd.Parameters.AddWithValue("@ActorFirstName", smodel.ActorFirstName);
             cmd.Parameters.AddWithValue("@ActorLastName", smodel.ActorLastName);
+            cmd.Parameters.AddWithValue("@ActorBirthday", smodel.ActorBirthday);
+            cmd.Parameters.AddWithValue("@ActorBirthCity", smodel.ActorBirthCity);
+            cmd.Parameters.AddWithValue("@ActorBirthState", smodel.ActorBirthState);
+            cmd.Parameters.AddWithValue("@ActorBirthCountry", smodel.ActorBirthCountry);
             cmd.Parameters.AddWithValue("@RoleName", smodel.RoleName);
 
 
