@@ -15,6 +15,21 @@
             @Html.DisplayNameFor(model => model.FilmName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.FilmYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilmReleased)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilmRuntime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilmimdbID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilmPoster)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.RatingName)
         </th>
         <th>
@@ -29,6 +44,18 @@
         <th>
             @Html.DisplayNameFor(model => model.ActorLastName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActorBirthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActorBirthCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActorBirthState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActorBirthCountry)
+        </th>
         <th></th>
     </tr>
 
@@ -42,6 +69,21 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FilmName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmReleased)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmRuntime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmimdbID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmPoster)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RatingName)
@@ -59,9 +101,21 @@
             @Html.DisplayFor(modelItem => item.ActorLastName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.FilmID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.FilmID }) |
-            @Html.ActionLink("Delete", "Delete", new {id=item.FilmID})
+            @Html.DisplayFor(modelItem => item.ActorBirthday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActorBirthCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActorBirthState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActorBirthCountry)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }
