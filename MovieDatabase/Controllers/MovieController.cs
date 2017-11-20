@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MovieDatabase.Models;
+using System.Diagnostics;
 
 namespace MovieDatabase.Controllers
 {
@@ -16,7 +17,6 @@ namespace MovieDatabase.Controllers
             ModelState.Clear();
             return View(dbhandle.GetMovie());
         }
-
         // GET: Movie/Details/5
         public ActionResult Details(int id)
         {
