@@ -146,8 +146,11 @@
     <Content Include="Views\Producer\Delete.cshtml" />
     <Content Include="Views\Movie\Delete.cshtml" />
     <Content Include="Views\Movie\Create.cshtml" />
-    <Content Include="Views\Movie\Index.cshtml" />
+    <Content Include="Views\Movie\Index1.cshtml" />
     <Content Include="Views\Movie\Edit.cshtml" />
+    <Content Include="Views\Movie\Details.cshtml" />
+    <Content Include="Views\Movie\Index.cshtml" />
+    <Content Include="Views\Movie\JM1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

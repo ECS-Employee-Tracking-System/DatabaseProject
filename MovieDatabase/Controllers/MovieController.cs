@@ -10,12 +10,25 @@ namespace MovieDatabase.Controllers
 {
     public class MovieController : Controller
     {
-        // GET: Movie
+
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        // GET: Movie
+        public ActionResult Index1()
         {
             MovieDBHandler dbhandle = new MovieDBHandler();
             ModelState.Clear();
             return View(dbhandle.GetMovie());
+        }
+
+        public ActionResult JM1()
+        {
+            MovieDBHandler dbhandle = new MovieDBHandler();
+            ModelState.Clear();
+            return View(dbhandle.GetActorsStateCount());
         }
         // GET: Movie/Details/5
         public ActionResult Details(int id)

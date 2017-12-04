@@ -36,5 +36,7 @@ namespace MovieDatabase.Models
         public String ActorBirthCountry { get; set; }
 
         public String RoleName { get; set; }
+
+        public int ActorsPerState { get; set; }
     }
 }

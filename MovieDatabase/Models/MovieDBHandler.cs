@@ -153,5 +153,35 @@ namespace MovieDatabase.Models
             else
                 return false;
         }
+        // ********************** JM1 GetActorsStateCount *******************
+        public List<Movie> GetActorsStateCount()
+        {
+            Connection();
+            List<Movie> Movielist = new List<Movie>();
+
+            SqlCommand cmd = new SqlCommand("GetActorsStateCount", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                Movielist.Add(
+                    new Movie
+                    {
+               
+                        ActorBirthState = Convert.ToString(dr["BirthState"]),
+                
+                        ActorsPerState = Convert.ToInt32(dr["Actors Per State"])
+
+                    });
+            }
+            return Movielist;
+        }
     }
 }
