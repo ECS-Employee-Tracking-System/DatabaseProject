@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MovieDatabase.Models;
@@ -29,6 +28,19 @@ namespace MovieDatabase.Controllers
             MovieDBHandler dbhandle = new MovieDBHandler();
             ModelState.Clear();
             return View(dbhandle.GetActorsStateCount());
+        }
+
+        public ActionResult JM2All()
+        {
+            MovieDBHandler sdb = new MovieDBHandler();
+            return View(sdb.GetActorMoviesAll());
+        }
+
+
+        public ActionResult JM2(int id)
+        {
+            MovieDBHandler sdb = new MovieDBHandler();
+            return View(sdb.GetActorMovies(id));
         }
         // GET: Movie/Details/5
         public ActionResult Details(int id)

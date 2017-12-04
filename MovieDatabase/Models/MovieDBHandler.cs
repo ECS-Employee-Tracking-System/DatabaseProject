@@ -183,5 +183,66 @@ namespace MovieDatabase.Models
             }
             return Movielist;
         }
+        // ********************** JM2 GetActorMovies *******************
+        public List<Movie> GetActorMovies(int id)
+        {
+            Connection();
+            List<Movie> Movielist = new List<Movie>();
+
+            SqlCommand cmd = new SqlCommand("GetActorMovies", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@ActorID", id);
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                Movielist.Add(
+                    new Movie
+                    {
+                        FilmPoster = Convert.ToString(dr["FilmPoster"]),
+                        FilmName = Convert.ToString(dr["FilmName"]),
+                        ActorFirstName = Convert.ToString(dr["ActorFirstName"]),
+                        ActorLastName = Convert.ToString(dr["ActorLastName"]),
+                        ActorID = Convert.ToInt32(dr["ActorID"])
+                    });
+            }
+            return Movielist;
+        }
+        // ********************** JM2All GetActorMovies *******************
+        public List<Movie> GetActorMoviesAll()
+        {
+            Connection();
+            List<Movie> Movielist = new List<Movie>();
+
+            SqlCommand cmd = new SqlCommand("GetActorMovies", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                Movielist.Add(
+                    new Movie
+                    {
+                        FilmPoster = Convert.ToString(dr["FilmPoster"]),
+                        FilmName = Convert.ToString(dr["FilmName"]),
+                        ActorFirstName = Convert.ToString(dr["ActorFirstName"]),
+                        ActorLastName = Convert.ToString(dr["ActorLastName"]),
+                        ActorID = Convert.ToInt32(dr["ActorID"])
+                    });
+            }
+            return Movielist;
+        }
     }
 }
