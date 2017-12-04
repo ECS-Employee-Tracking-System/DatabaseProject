@@ -10,19 +10,21 @@ namespace MovieDatabase.Controllers
     public class MovieController : Controller
     {
 
+        //base controller for default view to link stored procedures
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Movie
+        // GET: All tables
         public ActionResult Index1()
         {
             MovieDBHandler dbhandle = new MovieDBHandler();
             ModelState.Clear();
             return View(dbhandle.GetMovie());
         }
-
+        
+        //Stored procedure to get a count of the actors born listed by state
         public ActionResult JM1()
         {
             MovieDBHandler dbhandle = new MovieDBHandler();
@@ -30,24 +32,20 @@ namespace MovieDatabase.Controllers
             return View(dbhandle.GetActorsStateCount());
         }
 
+        //gets list of all actors for each movie with a select to filter just the movies for that actor
         public ActionResult JM2All()
         {
             MovieDBHandler sdb = new MovieDBHandler();
             return View(sdb.GetActorMoviesAll());
         }
 
-
+        //the filter for JM2All
         public ActionResult JM2(int id)
         {
             MovieDBHandler sdb = new MovieDBHandler();
             return View(sdb.GetActorMovies(id));
         }
-        // GET: Movie/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
+        
         // GET: Movie/Create
         public ActionResult Create()
         {
