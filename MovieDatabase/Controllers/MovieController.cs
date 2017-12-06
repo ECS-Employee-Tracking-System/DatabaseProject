@@ -45,7 +45,30 @@ namespace MovieDatabase.Controllers
             MovieDBHandler sdb = new MovieDBHandler();
             return View(sdb.GetActorMovies(id));
         }
+
+
+        public ActionResult AD1()
+        {
+            MovieDBHandler dbhandle = new MovieDBHandler();
+            ModelState.Clear();
+            return View(dbhandle.GetActorsStateCount());
+        }
+
         
+        public ActionResult AD2All()
+        {
+            MovieDBHandler sdb = new MovieDBHandler();
+            return View(sdb.GetActorMoviesAll());
+        }
+
+        
+        public ActionResult AD2(int id)
+        {
+            MovieDBHandler sdb = new MovieDBHandler();
+            return View(sdb.GetActorMovies(id));
+        }
+
+
         // GET: Movie/Create
         public ActionResult Create()
         {
