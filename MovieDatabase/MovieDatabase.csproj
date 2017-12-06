@@ -154,6 +154,8 @@
     <Content Include="Views\Movie\AD1.cshtml" />
     <Content Include="Views\Movie\AD2.cshtml" />
     <Content Include="Views\Movie\CK1.cshtml" />
+    <Content Include="Views\Movie\CK2.cshtml" />
+    <Content Include="Views\Movie\CK2Input.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

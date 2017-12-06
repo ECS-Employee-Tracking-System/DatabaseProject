@@ -41,5 +41,6 @@ namespace MovieDatabase.Models
 
         // ********************** CK1 GetActorsMovieCount *******************
         public int MoviesPerActor { get; set; }
+        public int Age { get; set; }
     }
 }

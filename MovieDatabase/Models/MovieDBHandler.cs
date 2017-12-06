@@ -73,7 +73,7 @@ namespace MovieDatabase.Models
                     new Movie
                     {
                         FilmName = Convert.ToString(dr["FilmName"]),
-                        FilmYear=Convert.ToDateTime(dr["FilmYear"] as DateTime?),
+                        FilmYear = Convert.ToDateTime(dr["FilmYear"] as DateTime?),
                         FilmReleased = Convert.ToDateTime(dr["FilmReleased"] as DateTime?),
                         FilmRuntime = Convert.ToString(dr["FilmRuntime"]),
                         FilmimdbID = Convert.ToString(dr["FilmimdbID"]),
@@ -86,7 +86,7 @@ namespace MovieDatabase.Models
                         GenreName = Convert.ToString(dr["GenreName"]),
                         ProducerFirstName = Convert.ToString(dr["ProducerFirstName"]),
                         ProducerLastName = Convert.ToString(dr["ProducerLastName"]),
-                        ActorFirstName= Convert.ToString(dr["ActorFirstName"]),
+                        ActorFirstName = Convert.ToString(dr["ActorFirstName"]),
                         ActorLastName = Convert.ToString(dr["ActorLastName"]),
                         ActorBirthday = Convert.ToDateTime(dr["ActorBirthday"] as DateTime?),
                         ActorBirthCity = Convert.ToString(dr["ActorBirthCity"]),
@@ -289,21 +289,22 @@ namespace MovieDatabase.Models
 
             foreach (DataRow dr in dt.Rows)
             {
-              Movielist.Add(
-                  new Movie
-                  {
-                      FilmPoster = Convert.ToString(dr["Poster"]),
-                      ActorBirthCountry = Convert.ToString(dr["BirthCountry"]),
-                      ActorFirstName = Convert.ToString(dr["FirstName"]),
-                      ActorLastName = Convert.ToString(dr["LastName"]),
-                      RatingName = Convert.ToString(dr["Name"])
-                  });
+                Movielist.Add(
+                    new Movie
+                    {
+                        FilmPoster = Convert.ToString(dr["Poster"]),
+                        ActorBirthCountry = Convert.ToString(dr["BirthCountry"]),
+                        ActorFirstName = Convert.ToString(dr["FirstName"]),
+                        ActorLastName = Convert.ToString(dr["LastName"]),
+                        RatingName = Convert.ToString(dr["Name"])
+                    });
             }
             return Movielist;
         }
-      // ********************** CK1 GetActorsMovieCount *******************
-      public List<Movie> GetActorsMovieCount()
-      {
+
+        // ********************** CK1 GetActorsMovieCount *******************
+        public List<Movie> GetActorsMovieCount()
+        {
             Connection();
             List<Movie> ActorList = new List<Movie>();
             SqlCommand cmd = new SqlCommand("GetActorsMovieCount", con);
@@ -323,6 +324,36 @@ namespace MovieDatabase.Models
                     ActorFirstName = Convert.ToString(dr["FirstName"]),
                     ActorLastName = Convert.ToString(dr["LastName"]),
                     MoviesPerActor = Convert.ToInt32(dr["Number of Films"])
+                });
+            }
+
+            return ActorList;
+        }
+
+        // ********************** CK2 GetActorsByAge *******************
+        public List<Movie> GetActorsByAge(int age, String type)
+        {
+            Connection();
+            List<Movie> ActorList = new List<Movie>();
+            SqlCommand cmd = new SqlCommand("GetActorsByAge", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@age", age);
+            cmd.Parameters.AddWithValue("@type", type);
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                ActorList.Add(new Movie
+                {
+                    ActorID = Convert.ToInt32(dr["ActorID"]),
+                    ActorFirstName = Convert.ToString(dr["FirstName"]),
+                    ActorLastName = Convert.ToString(dr["LastName"]),
+                    Age = Convert.ToInt32(dr["ActorAge"])
                 });
             }
 

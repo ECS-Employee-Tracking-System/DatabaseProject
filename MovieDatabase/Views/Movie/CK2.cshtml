@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MovieDatabase.Models.Movie>
+
+@Html.ActionLink("Change filter", "CK2Input", "Movie")
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ActorID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActorFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActorLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActorID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActorFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActorLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.ActionLink("Filter This Actor", "JM2", new { id = item.ActorID })
+        </td>
+    </tr>
+}
+
+</table>

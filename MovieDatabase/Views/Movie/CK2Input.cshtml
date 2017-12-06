@@ -1,0 +1,13 @@
+﻿@model IEnumerable<MovieDatabase.Models.Movie>
+
+<br />
+<form method="post" action="@Url.Action("CK2", "Movie")">
+    <input type="number" name="age" />
+    <select name="type">
+        <option value="None" selected="selected">None</option>
+        <option value="=">=</option>
+        <option value=">">></option>
+        <option value="<"><</option>
+    </select>
+    <button type="submit">Submit</button>
+</form>

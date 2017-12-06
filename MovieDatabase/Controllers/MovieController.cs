@@ -63,10 +63,22 @@ namespace MovieDatabase.Controllers
             return View(sdb.GetActorNotUSARatingOver75());
         }
 
+        //-----------------------------------------Chris Kingdon---------------------------------------
         public ActionResult CK1()
         {
             MovieDBHandler sdb = new MovieDBHandler();
             return View(sdb.GetActorsMovieCount());
+        }
+
+        public ActionResult CK2(String type, int age = 0)
+        {
+            MovieDBHandler sdb = new MovieDBHandler();
+            return View(sdb.GetActorsByAge(age, type));
+        }
+
+        public ActionResult CK2Input()
+        {
+            return View();
         }
 
 
