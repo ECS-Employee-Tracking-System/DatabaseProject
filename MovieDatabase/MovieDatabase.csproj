@@ -129,10 +129,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Movie.cs" />
-    <Compile Include="Models\MovieApi.cs" />
-    <Compile Include="Models\MovieApiSearch.cs" />
     <Compile Include="Models\MovieDBHandler.cs" />
-    <Compile Include="Models\RatingApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
