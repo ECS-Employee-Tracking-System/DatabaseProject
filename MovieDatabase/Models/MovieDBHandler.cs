@@ -271,5 +271,37 @@ namespace MovieDatabase.Models
             }
             return Movielist;
         }
+
+        public List<Movie> GetActorNotUSARatingOver75()
+        {
+            Connection();
+            List<Movie> Movielist = new List<Movie>();
+
+            SqlCommand cmd = new SqlCommand("GetActorNotUSARatingOver75", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                Movielist.Add(
+                    new Movie
+                    {
+                        FilmPoster = Convert.ToString(dr["Poster"]),
+                        ActorBirthCountry = Convert.ToString(dr["BirthCountry"]),
+                        ActorFirstName = Convert.ToString(dr["FirstName"]),
+                        ActorLastName = Convert.ToString(dr["LastName"]),
+                        RatingName = Convert.ToString(dr["Name"])
+                    });
+            }
+            return Movielist;
+        }
+
+
     }
 }

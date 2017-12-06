@@ -152,6 +152,7 @@
     <Content Include="Views\Movie\JM2.cshtml" />
     <Content Include="Views\Movie\JM2All.cshtml" />
     <Content Include="Views\Movie\AD1.cshtml" />
+    <Content Include="Views\Movie\AD2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
