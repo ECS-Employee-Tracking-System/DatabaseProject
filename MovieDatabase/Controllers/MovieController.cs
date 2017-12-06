@@ -55,17 +55,12 @@ namespace MovieDatabase.Controllers
         }
 
         
-        public ActionResult AD2All()
-        {
-            MovieDBHandler sdb = new MovieDBHandler();
-            return View(sdb.GetActors());
-        }
-
         
-        public ActionResult AD2(int id)
+
+       public ActionResult AD2()
         {
             MovieDBHandler sdb = new MovieDBHandler();
-            return View(sdb.GetActorMovies(id));
+            return View(sdb.GetActorNotUSARatingOver75());
         }
 
         public ActionResult CK1()

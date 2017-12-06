@@ -174,9 +174,9 @@ namespace MovieDatabase.Models
                 Movielist.Add(
                     new Movie
                     {
-               
+
                         ActorBirthState = Convert.ToString(dr["BirthState"]),
-                
+
                         ActorsPerState = Convert.ToInt32(dr["Actors Per State"])
 
                     });
@@ -273,9 +273,37 @@ namespace MovieDatabase.Models
             return Movielist;
         }
 
-        // ********************** CK1 GetActorsMovieCount *******************
-        public List<Movie> GetActorsMovieCount()
+        public List<Movie> GetActorNotUSARatingOver75()
         {
+            Connection();
+            List<Movie> Movielist = new List<Movie>();
+
+            SqlCommand cmd = new SqlCommand("GetActorNotUSARatingOver75", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+              Movielist.Add(
+                  new Movie
+                  {
+                      FilmPoster = Convert.ToString(dr["Poster"]),
+                      ActorBirthCountry = Convert.ToString(dr["BirthCountry"]),
+                      ActorFirstName = Convert.ToString(dr["FirstName"]),
+                      ActorLastName = Convert.ToString(dr["LastName"]),
+                      RatingName = Convert.ToString(dr["Name"])
+                  });
+            }
+            return Movielist;
+        }
+      // ********************** CK1 GetActorsMovieCount *******************
+      public List<Movie> GetActorsMovieCount()
+      {
             Connection();
             List<Movie> ActorList = new List<Movie>();
             SqlCommand cmd = new SqlCommand("GetActorsMovieCount", con);
