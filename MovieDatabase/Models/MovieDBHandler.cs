@@ -214,13 +214,13 @@ namespace MovieDatabase.Models
             }
             return Movielist;
         }
-        // ********************** JM2All GetActorMovies *******************
-        public List<Movie> GetActorMoviesAll()
+        // ********************** JM2All GetActos *******************
+        public List<Movie> GetActors()
         {
             Connection();
             List<Movie> Movielist = new List<Movie>();
 
-            SqlCommand cmd = new SqlCommand("GetActorMovies", con);
+            SqlCommand cmd = new SqlCommand("GetActors", con);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter sd = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -235,8 +235,6 @@ namespace MovieDatabase.Models
                 Movielist.Add(
                     new Movie
                     {
-                        FilmPoster = Convert.ToString(dr["FilmPoster"]),
-                        FilmName = Convert.ToString(dr["FilmName"]),
                         ActorFirstName = Convert.ToString(dr["ActorFirstName"]),
                         ActorLastName = Convert.ToString(dr["ActorLastName"]),
                         ActorID = Convert.ToInt32(dr["ActorID"])

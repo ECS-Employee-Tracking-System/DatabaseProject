@@ -7,17 +7,12 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FilmPoster)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FilmName)
+            @Html.DisplayNameFor(model => model.ActorLastName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ActorFirstName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ActorLastName)
-        </th>
+    
         <th>
             @Html.DisplayNameFor(model => model.ActorID)
         </th>
@@ -27,18 +22,12 @@
     @foreach (var item in Model)
     {
         <tr>
+   
             <td>
-                <img src="@Url.Content(item.FilmPoster)" width="100" height="150" alt="Film Poster" />
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.FilmName)
+                @Html.DisplayFor(modelItem => item.ActorLastName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ActorFirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ActorLastName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ActorID)

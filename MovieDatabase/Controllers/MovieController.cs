@@ -36,7 +36,7 @@ namespace MovieDatabase.Controllers
         public ActionResult JM2All()
         {
             MovieDBHandler sdb = new MovieDBHandler();
-            return View(sdb.GetActorMoviesAll());
+            return View(sdb.GetActors());
         }
 
         //the filter for JM2All
@@ -58,7 +58,7 @@ namespace MovieDatabase.Controllers
         public ActionResult AD2All()
         {
             MovieDBHandler sdb = new MovieDBHandler();
-            return View(sdb.GetActorMoviesAll());
+            return View(sdb.GetActors());
         }
 
         
