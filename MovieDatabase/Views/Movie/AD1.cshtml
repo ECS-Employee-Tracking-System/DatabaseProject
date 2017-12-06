@@ -1,15 +1,20 @@
 ﻿@model IEnumerable<MovieDatabase.Models.Movie>
-
     <H1>
-        A List of How many Actors are born by State in the United States
+        A list of all Actors born in California that are in Action Movies
     </H1>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ActorBirthState)
+                @Html.DisplayNameFor(model => model.FilmPoster)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ActorsPerState)
+                @Html.DisplayNameFor(model => model.ActorFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActorLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActorBirthState)
             </th>
             <th></th>
         </tr>
@@ -18,10 +23,16 @@
             <tr>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.ActorBirthState)
+                <img src="@Url.Content(item.FilmPoster)" width="100" height="150" alt="Film Poster" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ActorsPerState)
+                    @Html.DisplayFor(modelItem => item.ActorFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActorLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActorBirthState)
                 </td>
             </tr>
         }

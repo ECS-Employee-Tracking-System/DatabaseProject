@@ -51,7 +51,7 @@ namespace MovieDatabase.Controllers
         {
             MovieDBHandler dbhandle = new MovieDBHandler();
             ModelState.Clear();
-            return View(dbhandle.GetActorsStateCount());
+            return View(dbhandle.GetActionActorCalifornia());
         }
 
         

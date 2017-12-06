@@ -244,5 +244,34 @@ namespace MovieDatabase.Models
             }
             return Movielist;
         }
+        public List<Movie> GetActionActorCalifornia()
+        {
+            Connection();
+            List<Movie> Movielist = new List<Movie>();
+
+            SqlCommand cmd = new SqlCommand("GetActorActionCalifornia", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                Movielist.Add(
+                    new Movie
+                    {
+                        FilmPoster = Convert.ToString(dr["Poster"]),
+                        ActorBirthState = Convert.ToString(dr["BirthState"]),
+                        ActorFirstName = Convert.ToString(dr["FirstName"]),
+                        ActorLastName = Convert.ToString(dr["LastName"]),
+                        GenreName = Convert.ToString(dr["Name"])
+                    });
+            }
+            return Movielist;
+        }
     }
 }
