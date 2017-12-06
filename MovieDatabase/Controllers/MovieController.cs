@@ -68,6 +68,12 @@ namespace MovieDatabase.Controllers
             return View(sdb.GetActorMovies(id));
         }
 
+        public ActionResult CK1()
+        {
+            MovieDBHandler sdb = new MovieDBHandler();
+            return View(sdb.GetActorsMovieCount());
+        }
+
 
         // GET: Movie/Create
         public ActionResult Create()

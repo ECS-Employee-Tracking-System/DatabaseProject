@@ -242,6 +242,7 @@ namespace MovieDatabase.Models
             }
             return Movielist;
         }
+
         public List<Movie> GetActionActorCalifornia()
         {
             Connection();
@@ -270,6 +271,34 @@ namespace MovieDatabase.Models
                     });
             }
             return Movielist;
+        }
+
+        // ********************** CK1 GetActorsMovieCount *******************
+        public List<Movie> GetActorsMovieCount()
+        {
+            Connection();
+            List<Movie> ActorList = new List<Movie>();
+            SqlCommand cmd = new SqlCommand("GetActorsMovieCount", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                ActorList.Add(new Movie
+                {
+                    ActorID = Convert.ToInt32(dr["ActorID"]),
+                    ActorFirstName = Convert.ToString(dr["FirstName"]),
+                    ActorLastName = Convert.ToString(dr["LastName"]),
+                    MoviesPerActor = Convert.ToInt32(dr["Number of Films"])
+                });
+            }
+
+            return ActorList;
         }
     }
 }

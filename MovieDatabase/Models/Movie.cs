@@ -38,5 +38,8 @@ namespace MovieDatabase.Models
         public String RoleName { get; set; }
 
         public int ActorsPerState { get; set; }
+
+        // ********************** CK1 GetActorsMovieCount *******************
+        public int MoviesPerActor { get; set; }
     }
 }
